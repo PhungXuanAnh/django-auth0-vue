@@ -17,6 +17,7 @@ selenium-debug.log
 *.sln
 
 *.pyc
+.python3
 
 webpack-stats.json
 db.sqlite3
