@@ -18,6 +18,7 @@ selenium-debug.log
 
 *.pyc
 .python3
+public/
 
 webpack-stats.json
 db.sqlite3

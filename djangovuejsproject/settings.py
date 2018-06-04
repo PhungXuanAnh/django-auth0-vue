@@ -20,9 +20,9 @@ from cryptography.hazmat.backends import default_backend
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-##https://screenshots.firefoxusercontent.com/images/d1fc6927-8923-4f05-9489-00aec327e685.png
-##https://screenshots.firefoxusercontent.com/images/fc001c90-9e72-44d4-902e-61842a7c01cc.png
-##https://screenshots.firefoxusercontent.com/images/9c2ce859-3afa-4cee-a349-618f91303fa7.png
+# https://screenshots.firefoxusercontent.com/images/d1fc6927-8923-4f05-9489-00aec327e685.png
+# https://screenshots.firefoxusercontent.com/images/fc001c90-9e72-44d4-902e-61842a7c01cc.png
+# https://screenshots.firefoxusercontent.com/images/9c2ce859-3afa-4cee-a349-618f91303fa7.png
 
 
 # Quick-start development settings - unsuitable for production
@@ -135,8 +135,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'dist'),
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'vueapp/dist'),
+    # os.path.join(BASE_DIR, 'static'),
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'public')
 STATIC_URL = '/static/'
@@ -153,8 +153,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        #'rest_framework.authentication.BasicAuthentication',
-        #'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
 }
@@ -167,15 +167,19 @@ PUBLIC_KEY = None
 JWT_ISSUER = None
 
 if AUTH0_DOMAIN:
-    jsonurl = request.urlopen('https://' + AUTH0_DOMAIN + '/.well-known/jwks.json')
+    jsonurl = request.urlopen(
+        'https://' + AUTH0_DOMAIN + '/.well-known/jwks.json')
     jwks = json.loads(jsonurl.read().decode('utf-8'))
-    cert = '-----BEGIN CERTIFICATE-----\n' + jwks['keys'][0]['x5c'][0] + '\n-----END CERTIFICATE-----'
-    certificate = load_pem_x509_certificate(cert.encode('utf-8'), default_backend())
+    cert = '-----BEGIN CERTIFICATE-----\n' + \
+        jwks['keys'][0]['x5c'][0] + '\n-----END CERTIFICATE-----'
+    certificate = load_pem_x509_certificate(
+        cert.encode('utf-8'), default_backend())
     PUBLIC_KEY = certificate.public_key()
     JWT_ISSUER = 'https://' + AUTH0_DOMAIN + '/'
 
-#def jwt_get_username_from_payload_handler(payload):
+# def jwt_get_username_from_payload_handler(payload):
 #    return payload.get('sub').replace('|', '.')
+
 
 def jwt_get_username_from_payload_handler(payload):
     return 'auth0user'
