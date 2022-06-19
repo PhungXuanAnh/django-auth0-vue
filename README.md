@@ -26,8 +26,8 @@ You need to have `virtualenv` and Python 3 installed (Django 2 requires Python 3
 First create a new virtual environment and activate it with:
 
 ```bash
- virtualenv -p python3 env
- source env/bin/activate
+virtualenv -p python3 env
+source env/bin/activate
 ```
 
 Next, clone the project from Github:
