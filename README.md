@@ -1,8 +1,9 @@
 - [1. Django Auth0 Vue demo](#1-django-auth0-vue-demo)
 - [2. Installing](#2-installing)
-- [3. Home Page](#3-home-page)
-  - [3.1. Product List Page (List and Delete)](#31-product-list-page-list-and-delete)
-  - [3.2. Product Create/Update Page](#32-product-createupdate-page)
+- [3. Screenshots](#3-screenshots)
+  - [3.1. Home Page](#31-home-page)
+  - [3.2. Product List Page (List and Delete)](#32-product-list-page-list-and-delete)
+  - [3.3. Product Create/Update Page](#33-product-createupdate-page)
 
 # 1. Django Auth0 Vue demo
 
@@ -67,14 +68,15 @@ python manage.py runserver
 You can now navigate with your web browser to http://localhost:8000 and start playing with the demo.
 
 
+# 3. Screenshots
 
-# 3. Home Page
+## 3.1. Home Page
 
-## 3.1. Product List Page (List and Delete)
+## 3.2. Product List Page (List and Delete)
 
 ![]()
 
-## 3.2. Product Create/Update Page
+## 3.3. Product Create/Update Page
 
 ![]()
 
